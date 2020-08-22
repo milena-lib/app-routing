@@ -14,14 +14,14 @@ export class DetailsComponent implements OnInit {
   constructor(private route: ActivatedRoute){
       this.routeSubscription = route.parent.params.subscribe(params=>{
         this.id= params['id'];
-        debugger;
+        // debugger;
       });
     //this.id = this.route.snapshot.params.id;
   }
 
 
   ngOnInit(): void {
-    debugger;
+    // debugger;
   }
 
 }
