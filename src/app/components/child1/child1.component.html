@@ -1,0 +1,9 @@
+<div class="card">
+    <header *ngIf="isTitleAString(); else titleTemplateWrapper">{{ title }}</header>
+    <ng-template #titleTemplateWrapper>
+      <ng-container [ngTemplateOutlet]="title"></ng-container>
+    </ng-template>
+    <article>
+      <ng-content></ng-content>
+    </article>
+  </div>
