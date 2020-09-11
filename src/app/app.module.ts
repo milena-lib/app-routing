@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,11 +18,12 @@ import { MessageModule } from './dynamic-modules/message/message.module';
     NotFoundComponent,
     TabsComponent,
     Child1Component,
-    Child2Component
+    Child2Component,
     // TabsPagesComponent
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     SharedModule,
     MessageModule
