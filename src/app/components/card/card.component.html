@@ -1,0 +1,64 @@
+<!-- <ng-template>
+    <ng-container [ngTemplateOutlet]="cardContent"></ng-container>
+    <ng-content></ng-content>
+</ng-template> -->
+<!-- <p>Card component</p> -->
+<h1>Users List</h1>
+<input type="button" value="Добавить" class="btn btn-default" (click)="addUser()" />
+<table class="table table-striped" bordercollapse="collapse" cellpadding="0" cellspacing="0" border="1" bordercolor="red">
+    <thead>
+        <tr>
+            <td>Id</td>
+            <td>Name</td>
+            <td>Username</td>
+            <td>Email</td>
+            <td></td>
+            <td></td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of users">
+            <ng-template [ngTemplateOutlet]="loadTemplate(user)" 
+                        [ngTemplateOutletContext]="{ $implicit: user}">
+            </ng-template>
+        </tr>
+    </tbody>
+</table>
+<div>{{statusMessage}}</div>
+    
+    
+<!--шаблон для чтения-->
+<ng-template #readOnlyTemplate let-user>
+    <td>{{user.id}}</td>
+    <td>{{user.name}}</td>
+    <td>{{user.email}}</td>
+    <td>{{user.username}}</td>
+    <td>
+        <input type="button" value="Изменить" class="btn btn-default" (click)="editUser(user)" />
+    </td>
+    <td>
+        <input type="button" value="Удалить" (click)="deleteUser(user)" class="btn btn-danger" />
+    </td>
+</ng-template>
+   
+<!--шаблон для редактирования-->
+<ng-template #editTemplate>
+    <td>
+        <input type="number" [(ngModel)]="editedUser.id" readonly disabled class="form-control" />
+    </td>
+    <td>
+        <input type="text" [(ngModel)]="editedUser.name" class="form-control" />
+    </td>
+    <td>
+        <input type="text" [(ngModel)]="editedUser.username" class="form-control" />
+    </td>
+    <td>
+        <input type="number" [(ngModel)]="editedUser.email" class="form-control" />
+    </td>
+    <td>
+        <input type="button" value="Сохранить" (click)="saveUser()" class="btn btn-success" />
+    </td>
+    <td>
+        <input type="button" value="Отмена" (click)="cancel()" class="btn btn-warning" />
+    </td>
+</ng-template>

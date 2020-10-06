@@ -20,10 +20,10 @@ export class AboutComponent extends BasePageComponent implements OnInit {
     console.log("temp: ", this.temp);
     
     this.subscriptions.push(
-      this.userSrv.getUsersData()
+      this.userSrv.getUsers1Data()
       .subscribe(data => {
         this.userData = data;
-        debugger;
+        // debugger;
       })
     );
     

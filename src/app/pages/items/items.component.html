@@ -5,3 +5,14 @@
   <a [routerLink]="['../items/', '5']">Item Info</a>
 </nav>
 <router-outlet></router-outlet>
+
+<div class="main-container">
+  <app-multi-step-form
+    class="multi-step-form"
+    [formContent]="formContent"
+    (formSubmit)="onFormSubmit($event)"
+  ></app-multi-step-form>
+
+</div>
+
+<app-multi-form></app-multi-form>

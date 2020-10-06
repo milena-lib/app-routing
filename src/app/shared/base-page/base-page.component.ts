@@ -18,7 +18,7 @@ export class BasePageComponent implements OnInit {
   ngOnDestroy(): void {
     this.subscriptions.forEach(subscription => {
       subscription.unsubscribe();
-      debugger;
+      // debugger;
     });
   }
 }

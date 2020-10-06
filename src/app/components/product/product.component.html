@@ -1,0 +1,16 @@
+<form [formGroup]="productForm" (ngSubmit)="onFormSubmit()">
+    <div class="card">
+        <div>{{product.productName}}</div>
+        <div>
+            <label>Email</label>
+            <input type="email" formControlName="email" placeholder="enter email" />
+            <div *ngIf="submitted && productForm.controls['email'].errors?.required" [ngClass] = "'error'"> Email is required. </div>
+        </div>
+        <div>
+            <label>Phone</label>
+            <input type="phone" formControlName="phone" placeholder="enter phone" />
+            <div *ngIf="submitted && productForm.controls['phone'].errors?.required" [ngClass] = "'error'"> Phone is required. </div>
+        </div>
+        <button type="submit">Send</button>
+    </div>
+</form>

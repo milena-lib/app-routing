@@ -1,0 +1,22 @@
+<div class="container">
+    <form [formGroup]="cardsForm" novalidate>
+        <div formArrayName="cards">
+            <div class="card" *ngFor="let card of cards.controls; let i=index">
+                <div [formGroupName]="i">
+                    <div>{{card.controls.productName.value}}</div>
+                    <div>
+                        <label for="fieldEmail">Email</label>
+                        <input type="email" placeholder="enter email" formControlName="email" />
+                        <div *ngIf="submitted && card.controls.email.invalid" [ngClass] = "'error'"> Email is required. </div>
+                    </div>
+                    <div>
+                        <label for="fieldPhone">Phone</label>
+                        <input type="phone" placeholder="enter phone" formControlName="phone" />
+                        <div *ngIf="submitted && card.controls.phone.invalid" [ngClass] = "'error'"> Phone is required. </div>
+                    </div>
+                    <button type="submit" (click)="onFormSubmit(card,i)">Send</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
