@@ -1,15 +1,29 @@
 <form [formGroup]="productForm" (ngSubmit)="onFormSubmit()">
     <div class="card">
-        <div>{{product.productName}}</div>
-        <div>
+        <div class="product-name">{{product.productName}}</div>
+        <div class="fields-block" *ngIf="product.email">
             <label>Email</label>
-            <input type="email" formControlName="email" placeholder="enter email" />
-            <div *ngIf="submitted && productForm.controls['email'].errors?.required" [ngClass] = "'error'"> Email is required. </div>
+            <div>
+                <input type="email" formControlName="email" [class.err-border]="submitted && email.invalid" placeholder="enter email" />
+                <!-- <div *ngIf="submitted && productForm.controls['email'].errors?.required" [ngClass] = "'error'"> Email is required. </div> -->
+                <!-- <div *ngIf="(email.invalid && email.touched) || email.dirty"> -->
+                <div *ngIf="submitted && email.invalid">
+                    <small *ngIf="email.errors?.required" class="text-danger">Primary email is required</small>
+                    <small *ngIf="email.errors?.pattern" class="text-danger">Please provide a valid email address</small>
+                </div>
+            </div>
         </div>
-        <div>
+        <div class="fields-block" *ngIf="product.phone">
             <label>Phone</label>
-            <input type="phone" formControlName="phone" placeholder="enter phone" />
-            <div *ngIf="submitted && productForm.controls['phone'].errors?.required" [ngClass] = "'error'"> Phone is required. </div>
+            <div>
+                <input type="phone" formControlName="phone" [class.err-border]="submitted && email.invalid" placeholder="enter phone" />
+                <!-- <div *ngIf="submitted && productForm.controls['phone'].errors?.required" [ngClass] = "'error'"> Phone is required. </div> -->
+                <!-- <div *ngIf="(phone.invalid && phone.touched) || phone.dirty"> -->
+                <div *ngIf="submitted && phone.invalid">    
+                    <small *ngIf="phone.errors?.required" class="text-danger">Primary phone is required</small>
+                    <small *ngIf="phone.errors?.pattern" class="text-danger">Please provide a valid phone number</small>
+                </div>
+            </div>
         </div>
         <button type="submit">Send</button>
     </div>

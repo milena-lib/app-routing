@@ -5,6 +5,18 @@
     padding: 20px;
     border: 1px solid gray;
     border-radius: 10px;
+    margin: 10px 0;
+  }
+
+  .fields-block {
+      display: flex;
+      justify-content: space-between;
+      padding: 5px 0;
+  }
+
+  label { 
+      width: 25%;
+      display: block;
   }
 
   .error{
@@ -12,4 +24,23 @@
     font-size: 20px;
     margin-top: 10px;
     margin-right: 10px;
+  }
+
+  .text-danger {
+    color: red;
+  }
+
+  .err-border {
+      border: 1px solid red;
+  }
+
+  .product-name {
+      color: green;
+      font-size: 24px;
+      font-weight: bold;
+      padding: 10px 0;
+  }
+
+  button {
+      margin: 20px 0 0;
   }
