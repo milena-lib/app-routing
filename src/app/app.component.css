@@ -18,3 +18,15 @@
   .text-bold {
     font-weight: bold;
   }
+/* 
+  [class|='first'] {
+    color: lime;
+  }
+
+  [class|='second'] {
+    color: blue;
+  }
+
+  [class|='third'] {
+    color: purple;
+  } */
