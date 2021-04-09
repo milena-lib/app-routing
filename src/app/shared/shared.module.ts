@@ -12,7 +12,7 @@ import { FormatTitlePipe } from '../pipes/format-title.pipe';
 import { MultiFormComponent } from '../components/multi-form/multi-form.component';
 import { ProductsComponent } from '../components/products/products.component';
 import { ProductComponent } from '../components/product/product.component';
-
+import { RiskSquareComponent } from '../components/risk-square/risk-square.component';
 @NgModule({
   declarations: [TabsPagesComponent
     , BasePageComponent
@@ -22,6 +22,7 @@ import { ProductComponent } from '../components/product/product.component';
     , MultiFormComponent
     , ProductsComponent
     , ProductComponent
+    , RiskSquareComponent
   ],
   imports: [
     CommonModule
@@ -37,6 +38,7 @@ import { ProductComponent } from '../components/product/product.component';
     , MultiFormComponent
     , ProductsComponent
     , ProductComponent
+    , RiskSquareComponent
   ],
   providers: [DataService, UserService]
 })

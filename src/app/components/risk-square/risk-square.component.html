@@ -1,0 +1,14 @@
+<div class="container">
+    <div  *ngFor="let in of counter(squareLength) ;let j = index" class="parent-column">
+        <ng-container *ngFor="let in of counter(squareLength) ;let i = index" >
+            <!-- <div class="square" [ngClass]="riskSquareArray[i][j].RiskClass">{{riskSquareArray[i][j].AxisCF}},{{riskSquareArray[i][j].AxisPF}}</div> -->
+            <div class="square" [ngClass]="riskSquareArray[i][j].RiskClass"
+                 title="{{riskSquareArray[i][j].RiskName}}"><!-- (click)="{{riskSquareArray[i][j].RiskName.length > 0}} && alert({{riskSquareArray[i][j].RiskName}})"-->
+                 <div *ngIf="!(i==2 && j==0) && !(i==5 && j==3)">{{riskSquareArray[i][j].RiskText}}</div>
+                 <div *ngIf="i==2 && j==0" class="pf-cf-square">PF</div>
+                 <div *ngIf="i==5 && j==3" class="pf-cf-square">CF</div>
+            </div>
+        </ng-container>
+    </div>
+
+</div>
