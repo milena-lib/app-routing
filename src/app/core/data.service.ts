@@ -7,7 +7,7 @@ import { map, catchError } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class DataService {
-    
+  temp: string;  
   constructor(public http: HttpClient) { 
 
   }

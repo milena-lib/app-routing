@@ -18,6 +18,7 @@ export class AboutComponent extends BasePageComponent implements OnInit {
 
   ngOnInit(): void {
     console.log("temp: ", this.temp);
+    console.log("service variable: ", this.userSrv.temp);
     
     this.subscriptions.push(
       this.userSrv.getUsers1Data()

@@ -3,3 +3,39 @@
         <app-product [product]="product"></app-product>
     </div>
 </div>
+
+<form [formGroup]="fg" class="spaced" (ngSubmit)="onSubmit()">
+    <h3>Nested in Group:</h3>
+    <div formGroupName="address" class="spaced">
+      <label>
+        <input type="text" formControlName="street">
+        <span *ngIf="isSubmitted && !fg.get('address').get('street')?.valid">please enter street</span>
+        <!-- valid: {{fg.get('address').get('street')?.valid}} -->
+      </label>
+    </div>
+    
+    <h3>Nested in Array:</h3>
+    <div formArrayName="aliases" *ngFor="let product of products;let alias of fg.get('aliases')['controls']; let i = index;" class="border"><!-- *ngFor="let alias of fg.get('aliases')['controls']; let i = index;"-->
+      <div [formGroupName]="i">
+        <label>
+          Alias {{i+1}}:
+          <input formControlName="name" placeholder="Item name"><!--valid: {{alias.get('name')?.valid}}-->
+          <span *ngIf="isSubmitted && !alias.get('name')?.valid">please enter name</span>
+        </label>
+        <!-- <button type="button" (click)="deleteAlias(i)">X</button> -->
+      </div>
+    </div>
+    <!-- <button type="button" (click)="addNewAlias()">add</button> -->
+    <div>form valid: {{fg?.valid}}</div>
+    <button type="submit">Submit Form</button>
+  </form>
+ 
+
+  
+<div>
+    <div *ngFor="let product of products" class="form-row">
+        <div><input type="text" #inp /></div>
+        <div #msg></div>
+    </div>
+    <a href="javascript:void(0)" (click)="getInputs();">Get Inputs</a>
+</div>

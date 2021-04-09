@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from 'src/app/core/data.service';
 
 @Component({
   selector: 'app-home',
@@ -7,12 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { 
+  constructor(private userSrv: DataService) { 
     // debugger;
   }
 
   ngOnInit(): void {
     // debugger;
+    this.userSrv.temp = "hello, routing!"
   }
 
 }
